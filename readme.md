@@ -135,3 +135,26 @@ url: http://localhost:3000/api/bootcamp/1
 method: GET
 
 url: http://localhost:3000/api/bootcamp
+
+### MOSTRAR TODOS LOS USUARIOS
+method: GET
+
+url: http://localhost:3000/api/user
+
+### BUSCAR UN USUARIO POR ID
+method: GET
+
+url: http://localhost:3000/api/user/1
+
+### ACTUALIZAR NOMBRE Y APELLIDO DE UN USUARIO
+method: PUT
+
+url: http://localhost:3000/api/user/2
+
+body:
+
+{
+    "firstName": "Mateo Actualizado",
+    "lastName": "Diaz Actualizado"
+}
+
