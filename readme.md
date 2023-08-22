@@ -3,9 +3,9 @@
 ## Repositorio
 https://github.com/AngelesCahill/m8-evFinal-jwtNode.git
 
-## Rutas
+## RUTAS
 
-### signup 
+### SIGNUP
 method: POST
 
 Por cada usuario: 
@@ -49,7 +49,7 @@ body:
     "password": "facundo123456"
 }
 
-### Login
+### LOGIN / SIGNIN
 method: POST
 
 url: http://localhost:3000/api/signin
@@ -61,7 +61,7 @@ body:
     "password": "mateo123456"
 }
 
-### Crear bootcamp
+### CREAR UN BOOTCAMP
 method: POST
 
 Por cada bootcamp:
