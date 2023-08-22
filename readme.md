@@ -10,7 +10,7 @@ method: POST
 
 Por cada usuario: 
 
-localhost:3000/api/signup
+url: http://localhost:3000/api/signup
 
 body:
 
@@ -52,7 +52,7 @@ body:
 ### Login
 method: POST
 
-localhost:3000/api/signin
+url: http://localhost:3000/api/signin
 
 body:
 
@@ -66,7 +66,7 @@ method: POST
 
 Por cada bootcamp:
 
-localhost:3000/bootcamp
+url: http://localhost:3000/bootcamp
 
 body:
 {
@@ -129,9 +129,9 @@ body:
 ### BUSCAR UN BOOTCAMP POR ID
 method: GET
 
-localhost:3000/api/bootcamp/1
+url: http://localhost:3000/api/bootcamp/1
 
 ### MOSTRAR TODOS LOS BOOTCAMPS
 method: GET
 
-localhost:3000/api/bootcamp
+url: http://localhost:3000/api/bootcamp
