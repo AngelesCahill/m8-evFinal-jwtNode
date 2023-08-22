@@ -30,21 +30,8 @@ app.use("/api/bootcamp", bootcamptRoutes);
 
 
 // Registro
-/**
-method: POST
-url: http://localhost:3000/api/signup
-body:
-{
-    "firstName": "Nombre",
-    "lastName": "Apellido",
-    "email": "mail@email.com",
-    "password": "mypassword"
-}
-*/
 app.post('/api/signup', verifySingUp, async (req, res) => {
-    // lógica del registro
     try {
-        // obteniendo los valores de entrada
         const {
             firstName,
             lastName,
@@ -65,7 +52,7 @@ app.post('/api/signup', verifySingUp, async (req, res) => {
         const user = await User.create({
             firstName,
             lastName,
-            email: email.toLowerCase(), // Convertimos a minuscula
+            email: email.toLowerCase(),
             password: encryptedPassword,
         });
 
@@ -100,8 +87,8 @@ method: POST
 url: http://localhost:3000/api/signin
 body:
 {
-    "email": "mail@email.com",
-    "password": "mypassword"
+    "email": "mateo.diaz@correo.com",
+    "password": "mateo123456"
 }
 */
 app.post('/api/signin', async (req, res) => {
@@ -134,7 +121,7 @@ app.post('/api/signin', async (req, res) => {
                 },
                 process.env.TOKEN_KEY, 
                 {
-                    expiresIn: "2m",
+                    expiresIn: "10m",
                 }
             );
             // Impresion por el terminal del Token generado para el usuario

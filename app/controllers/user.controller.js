@@ -1,4 +1,4 @@
-const { User, Bootcamp } = require("../models");
+const {User, Bootcamp } = require("../models");
 const bcrypt = require("bcryptjs");
 
 
@@ -51,42 +51,6 @@ const findUserById = async (req, res) => {
         });
     } catch (error) {
         console.log(error);
-        res.status(500).json({
-            message: error.message
-        });
-    }
-};
-
-const createUser = async (req, res) => {
-    try {
-        const {
-            firstName,
-            lastName,
-            email,
-            password
-        } = req.body;
-        // Validar los datos de entrada
-        if (!(firstName && lastName && email && password)) {
-            res.status(400).json({
-                message: "Todos los campos son requeridos"
-            });
-            return;
-        }
-        const nuevoUser = await User.create({
-            firstName,
-            lastName,
-            email,
-            password
-        });
-        console.log(
-            `Se ha creado el User ${JSON.stringify(nuevoUser, null, 4)}`
-        );
-        res.status(201).json({
-            message: `User ${nuevoUser.name} fue creado con éxito`,
-            user: nuevoUser,
-        });
-    } catch (error) {
-        console.error(error);
         res.status(500).json({
             message: error.message
         });
@@ -176,7 +140,6 @@ const deleteUserById = async (req, res) => {
 module.exports = {
     findUserById,
     findAllUsers,
-    createUser,
     updateUser,
     deleteUserById,
 };

@@ -11,7 +11,7 @@ const User = sequelize.define(
             primaryKey: true,
             autoIncrement: true,
         },
-        firstname: {
+        firstName: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -23,7 +23,7 @@ const User = sequelize.define(
                 },
             },
         },
-        lastname: {
+        lastName: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {

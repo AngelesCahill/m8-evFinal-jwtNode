@@ -40,7 +40,7 @@ const addUserToBootcamp = async (req, res) => {
             bootcampId,
             userId
         } = req.body;
-        console.log("bootcampId:", projectId);
+        console.log("bootcampId:", bootcampId);
         console.log("userId:", userId);
         const boot = await Bootcamp.findByPk(bootcampId);
         if (!boot) {
@@ -62,11 +62,11 @@ const addUserToBootcamp = async (req, res) => {
         console.log("usuario:", usuario);
         await boot.addUser(usuario);
         console.log(
-            `Agredado el usuario id ${usuario.id} al bootcamp con id ${boot.id}`
+            `Agredado el usuario id ${usuario.id} ${usuario.firstName} - ${usuario.email} al bootcamp con id ${boot.id}`
         );
         res.status(201).json({
-            message: `Se agregó el usuario id ${usuario.id} al bootcamp id ${boot.id}`,
-            bootcamp: boot,
+          message: `Agredado el usuario id ${usuario.id} ${usuario.firstName} - ${usuario.email} al bootcamp con id ${boot.id}`,
+          bootcamp: boot,
         });
     } catch (error) {
         console.error(error);
@@ -84,7 +84,7 @@ const findBootcampById = async (req, res) => {
         const boot = await Bootcamp.findByPk(id, {
             include: [{
                 model: User,
-                as: "user",
+                as: "users",
                 attributes: ["id", "firstName", "lastName", "email", "password"],
                 through: {
                     attributes: [],
@@ -101,8 +101,8 @@ const findBootcampById = async (req, res) => {
             `Se ha encontrado el bootcamp ${JSON.stringify(boot, null, 4)}`
         );
         res.status(200).json({
-            message: `El bootcamp ${boot.name} fue encontrado con éxito`,
-            project: boot,
+            message: `El bootcamp ${boot.title} fue encontrado con éxito`,
+            bootcamp: boot,
         });
     } catch (error) {
         console.error(error);
@@ -117,7 +117,7 @@ const findAllBootcamps = async (req, res) => {
         const boots = await Bootcamp.findAll({
             include: [{
                 model: User,
-                as: "user",
+                as: "users",
                 attributes: ["id", "firstName", "lastName", "email"],
                 through: {
                     attributes: [],

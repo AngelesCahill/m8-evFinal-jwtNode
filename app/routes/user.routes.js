@@ -3,7 +3,6 @@ const router = express.Router();
 const {
     findAllUsers,
     findUserById,
-    createUser,
     updateUser,
     deleteUserById,
 } = require("../controllers/user.controller");
@@ -25,7 +24,7 @@ router.get("/:id", findUserById);
 /**
 CREAR UN USUARIO
 method: POST
-url: http://localhost:3000/api/user
+url: http://localhost:3000/api/signup
 body:
 {
     "firstName": "Mateo",
@@ -51,8 +50,9 @@ body:
     "email": "facundo.fernandez@correo.com",
     "password": "facundo123456"
 }
-*/
+
 router.post("/", createUser);
+*/
 
 /**
 ACTUALIZAR NOMBRE Y APELLIDO DE UN USUARIO
