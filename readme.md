@@ -158,3 +158,8 @@ body:
     "lastName": "Diaz Actualizado"
 }
 
+### ELIMINAR USUARIO ID 4
+method: DELETE
+
+url: http://localhost:3000/api/user/4
+
